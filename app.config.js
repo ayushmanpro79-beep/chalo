@@ -1,4 +1,6 @@
-require('dotenv/config');
+from pathlib import Path
+
+fixed_config = """require('dotenv/config');
 
 const config = {
   name: 'Chalo',
@@ -10,6 +12,7 @@ const config = {
   icon: './assets/icon.png',
 
   splash: {
+    image: './assets/icon.png',
     backgroundColor: '#050811',
     resizeMode: 'contain'
   },
@@ -55,7 +58,6 @@ const config = {
     ],
     'expo-task-manager',
     'expo-image-picker',
-    'expo-image-manipulator',
     'expo-notifications',
     [
       'expo-camera',
@@ -74,3 +76,8 @@ const config = {
 };
 
 module.exports = config;
+"""
+
+path = Path("/mnt/data/app.config.fixed.js")
+path.write_text(fixed_config, encoding="utf-8")
+path
