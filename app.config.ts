@@ -47,6 +47,7 @@ const config: ExpoConfig = {
     ],
     'expo-task-manager',
     'expo-image-picker',
+    'expo-image-manipulator',
     'expo-notifications',
     [
       'expo-camera',
