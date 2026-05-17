@@ -1,6 +1,4 @@
-from pathlib import Path
-
-fixed_config = """require('dotenv/config');
+require('dotenv/config');
 
 const config = {
   name: 'Chalo',
@@ -56,8 +54,15 @@ const config = {
           'Allow Chalo to keep tracking your active walking trip.'
       }
     ],
-    'expo-task-manager',
-    'expo-image-picker',
+    [
+      'expo-image-picker',
+      {
+        photosPermission:
+          'Chalo lets you upload a memory photo for each stop.',
+        cameraPermission:
+          'Chalo uses the camera to save a memory photo for each stop.'
+      }
+    ],
     'expo-notifications',
     [
       'expo-camera',
@@ -76,8 +81,3 @@ const config = {
 };
 
 module.exports = config;
-"""
-
-path = Path("/mnt/data/app.config.fixed.js")
-path.write_text(fixed_config, encoding="utf-8")
-path
