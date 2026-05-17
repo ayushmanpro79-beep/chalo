@@ -1,5 +1,3 @@
-require('dotenv/config');
-
 const config = {
   name: 'Chalo',
   slug: 'chalo',
@@ -76,7 +74,10 @@ const config = {
   extra: {
     supabaseUrl: process.env.EXPO_PUBLIC_SUPABASE_URL,
     supabaseAnonKey: process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY,
-    placesProvider: process.env.EXPO_PUBLIC_PLACES_PROVIDER || 'overpass'
+    placesProvider: process.env.EXPO_PUBLIC_PLACES_PROVIDER || 'overpass',
+    eas: {
+      projectId: '79284368-e02a-453b-932e-eede2c666a79'
+    }
   }
 };
 

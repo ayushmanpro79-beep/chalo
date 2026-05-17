@@ -1,0 +1,13 @@
+CHALO EAS PROJECT LINK FIX
+
+Replace your root app.config.js with the included file.
+
+This adds the EAS project ID:
+
+79284368-e02a-453b-932e-eede2c666a79
+
+Then run:
+
+eas credentials
+
+Choose Android, then create/generate the keystore with EAS.
