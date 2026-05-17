@@ -1,7 +1,6 @@
-import 'dotenv/config';
-import type { ExpoConfig } from 'expo/config';
+require('dotenv/config');
 
-const config: ExpoConfig = {
+const config = {
   name: 'Chalo',
   slug: 'chalo',
   version: '0.1.0',
@@ -9,19 +8,26 @@ const config: ExpoConfig = {
   userInterfaceStyle: 'dark',
   scheme: 'chalo',
   icon: './assets/icon.png',
+
   splash: {
     backgroundColor: '#050811',
     resizeMode: 'contain'
   },
+
   ios: {
     supportsTablet: false,
     infoPlist: {
-      NSLocationWhenInUseUsageDescription: 'Chalo uses your location to track private walking trips and detect arrivals.',
-      NSLocationAlwaysAndWhenInUseUsageDescription: 'Chalo can keep recording your walk while a trip is active.',
-      NSCameraUsageDescription: 'Chalo uses the camera to save a memory photo for each stop.',
-      NSPhotoLibraryUsageDescription: 'Chalo lets you upload a memory photo for each stop.'
+      NSLocationWhenInUseUsageDescription:
+        'Chalo uses your location to track private walking trips and detect arrivals.',
+      NSLocationAlwaysAndWhenInUseUsageDescription:
+        'Chalo can keep recording your walk while a trip is active.',
+      NSCameraUsageDescription:
+        'Chalo uses the camera to save a memory photo for each stop.',
+      NSPhotoLibraryUsageDescription:
+        'Chalo lets you upload a memory photo for each stop.'
     }
   },
+
   android: {
     package: 'com.chalo.freewalking',
     adaptiveIcon: {
@@ -38,11 +44,13 @@ const config: ExpoConfig = {
       'POST_NOTIFICATIONS'
     ]
   },
+
   plugins: [
     [
       'expo-location',
       {
-        locationAlwaysAndWhenInUsePermission: 'Allow Chalo to keep tracking your active walking trip.'
+        locationAlwaysAndWhenInUsePermission:
+          'Allow Chalo to keep tracking your active walking trip.'
       }
     ],
     'expo-task-manager',
@@ -52,15 +60,17 @@ const config: ExpoConfig = {
     [
       'expo-camera',
       {
-        cameraPermission: 'Allow Chalo to take destination memory photos.'
+        cameraPermission:
+          'Allow Chalo to take destination memory photos.'
       }
     ]
   ],
+
   extra: {
     supabaseUrl: process.env.EXPO_PUBLIC_SUPABASE_URL,
     supabaseAnonKey: process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY,
-    placesProvider: process.env.EXPO_PUBLIC_PLACES_PROVIDER ?? 'overpass'
+    placesProvider: process.env.EXPO_PUBLIC_PLACES_PROVIDER || 'overpass'
   }
 };
 
-export default config;
+module.exports = config;
